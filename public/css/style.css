@@ -1,0 +1,26 @@
+body {
+	font-family: "Arial", sans-serif;
+    font-size: 16px;
+    max-width: 1500px;
+    width: 100%;
+    margin: 0 auto;
+    background: #FFFAF0;
+    padding-top: 30px;
+}
+
+a {
+    text-decoration: none;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 16px;
+    color: #000;
+    line-height: 3;
+}
+
+a:not(:last-child) {
+    margin-right: 45px;
+}
+
+h2, h3 {
+    margin-top: 60px;
+}
