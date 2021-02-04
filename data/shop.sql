@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3308
--- Время создания: Янв 25 2021 г., 11:45
+-- Время создания: Фев 04 2021 г., 11:45
 -- Версия сервера: 8.0.19
 -- Версия PHP: 7.4.5
 
@@ -39,8 +39,9 @@ CREATE TABLE `basket` (
 --
 
 INSERT INTO `basket` (`id`, `id_session`, `id_product`, `quantity`) VALUES
-(1, '76ed25htoe1i4b9iour9inhs1gnqb11c', 4, 5),
-(2, '76ed25htoe1i4b9iour9inhs1gnqb11c', 1, 3);
+(141, 'dvtvlkkkvh6690g24312frrkhkt3ibe2', 2, 1),
+(142, 'dvtvlkkkvh6690g24312frrkhkt3ibe2', 1, 1),
+(143, 'dvtvlkkkvh6690g24312frrkhkt3ibe2', 3, 2);
 
 -- --------------------------------------------------------
 
@@ -81,9 +82,9 @@ CREATE TABLE `menu` (
 
 INSERT INTO `menu` (`id`, `name`, `route`) VALUES
 (1, 'Главная', '/'),
-(2, 'Каталог', '/?c=product&a=catalog'),
-(3, 'Отзывы', '/reviews'),
-(4, 'Регистрация', '/registration');
+(2, 'Каталог', '/product/catalog'),
+(3, 'Отзывы', '/reviews/all'),
+(4, 'Регистрация', '/registration/form');
 
 -- --------------------------------------------------------
 
@@ -104,44 +105,7 @@ CREATE TABLE `orders` (
 --
 
 INSERT INTO `orders` (`id`, `name`, `phone`, `session_id`, `status`) VALUES
-(11, 'Игорь', '81230657845', 'ph99vnh5gpsq59oe8ipop09006aq4us2', 'Новый заказ'),
-(12, 'Игорь', '987654', 'ph99vnh5gpsq59oe8ipop09006aq4us2', 'Новый заказ'),
-(26, 'User', '1234567', 'p1huukbq194vvap1hi34ks6r0ttl3are', 'Новый заказ'),
-(27, 'Толя', '987654', '0gj6d3t20om9hq9dqeep0u9fm4gtm70s', 'Новый заказ'),
-(28, 'User', '987654', '71648gfavli4kdgctonp41ck787406q6', 'Новый заказ'),
-(29, 'Евгений', '81230657845', '76ed25htoe1i4b9iour9inhs1gnqb11c', 'Новый заказ');
-
--- --------------------------------------------------------
-
---
--- Структура таблицы `product`
---
-
-CREATE TABLE `product` (
-  `id` int NOT NULL,
-  `name` varchar(125) NOT NULL,
-  `description` varchar(256) NOT NULL,
-  `price` int NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-
---
--- Дамп данных таблицы `product`
---
-
-INSERT INTO `product` (`id`, `name`, `description`, `price`) VALUES
-(1, 'Чай', 'Цейлонский', 25),
-(2, 'Чай', 'Цейлонский', 25),
-(34, 'Чай', 'Цейлонский', 25),
-(36, 'Чай', 'Цейлонский', 25),
-(39, 'Чай', 'Цейлонский', 25),
-(43, 'Чай', 'Цейлонский', 25),
-(44, 'Чай_2', 'Цейлонский', 25),
-(46, 'Чай_2', 'Цейлонский', 25),
-(47, 'Чай', 'Цейлонский', 25),
-(48, 'Чай', 'Цейлонский', 25),
-(49, 'Чай', 'Цейлонский', 25),
-(50, 'Чай', 'Цейлонский', 25),
-(51, 'Чай', 'Цейлонский', 25);
+(29, 'Евгений', '81230657845', 'dvtvlkkkvh6690g24312frrkhkt3ibe2', 'Новый заказ');
 
 -- --------------------------------------------------------
 
@@ -196,11 +160,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `last_name`, `email`, `telephone`, `login`, `password`) VALUES
-(1, 'Иван', 'Иванов', 'ii@mail.com', '98765432', 'admin', '$2y$10$D/ArtUwo2xccMYUPLgtQ4.f/43WU5HC/qPWixTeGvLrmb6OJ8hUja'),
-(11, 'Евгений', 'Иванов', 'yevgeniy_krupnov@mail.ru', '98765432', 'kruevg', '$2y$10$QrdwRhIedzGKvmxK7A./sujoyYihz6OCDXLWN.N2/af3LwLEnb0h2'),
-(13, 'Игорь', 'Иванов', 'anbel@mail.ru', '81230982365', 'an123', '$2y$10$PS1tef3xI9.sjFOjFpxDCe7LUvDDhkE7.44kpFiAbsgtoWs1KycT6'),
-(14, 'Игорь', 'Петров', 'krubel@mail.ru', '81230982365', 'Евгений', '$2y$10$SARjFwgRBbelVGIdPwuYBeUSc4RJeMZ9SDbBsRROzEgIhPRpvTvzO'),
-(15, 'User', 'Петров', 'anbel@mail.ru', '81230982365', 'admin', '$2y$10$F3MnUw8AXLa.jqcD/R2Rxecgped3cGMfMJr6sFYuUgnfKpWS2Yxkq');
+(21, 'Иван', 'Иванов', 'anbel@mail.ru', '81230982365', 'admin', '$2y$10$hv3nMh8eb7ZZMWmdIrskgek0vc28phJH2ot4YgvlldMk2cBnbeXv.');
 
 --
 -- Индексы сохранённых таблиц
@@ -231,12 +191,6 @@ ALTER TABLE `orders`
   ADD PRIMARY KEY (`id`);
 
 --
--- Индексы таблицы `product`
---
-ALTER TABLE `product`
-  ADD PRIMARY KEY (`id`);
-
---
 -- Индексы таблицы `products`
 --
 ALTER TABLE `products`
@@ -256,7 +210,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT для таблицы `basket`
 --
 ALTER TABLE `basket`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=78;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=144;
 
 --
 -- AUTO_INCREMENT для таблицы `feedback`
@@ -277,12 +231,6 @@ ALTER TABLE `orders`
   MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
--- AUTO_INCREMENT для таблицы `product`
---
-ALTER TABLE `product`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=58;
-
---
 -- AUTO_INCREMENT для таблицы `products`
 --
 ALTER TABLE `products`
@@ -292,7 +240,7 @@ ALTER TABLE `products`
 -- AUTO_INCREMENT для таблицы `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
